@@ -9,9 +9,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {FormsModule} from '@angular/forms';
-import {AuthenticationService} from './authentication.service';
-import {UsersService} from './users.service';
-import {DataStorageService} from './data-storage.service';
+import {AuthenticationService} from './shared/authentication.service';
+import {UsersService} from './profile/users.service';
+import {DataStorageService} from './shared/data-storage.service';
 import {HttpModule} from '@angular/http';
 
 @NgModule({

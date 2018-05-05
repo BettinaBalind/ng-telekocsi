@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../authentication.service';
+import {AuthenticationService} from '../shared/authentication.service';
 import {NgForm} from '@angular/forms';
-import {User} from '../user.model';
-import {DataStorageService} from '../data-storage.service';
+import {User} from '../profile/user.model';
+import {DataStorageService} from '../shared/data-storage.service';
 import {Response} from '@angular/http';
 
 @Component({

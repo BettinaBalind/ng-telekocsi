@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
 import {Http} from '@angular/http';
-import {User} from './user.model';
-import {UsersService} from './users.service';
+import {User} from '../profile/user.model';
+import {UsersService} from '../profile/users.service';
 
 @Injectable()
 export class DataStorageService {

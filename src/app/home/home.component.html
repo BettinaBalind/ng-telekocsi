@@ -1,10 +1,13 @@
 <h2>Üdvözöllek a Telekocsi alkalmazásban!</h2>
 
-<p>A hirdetések böngészéséhez nincs szükség regisztrációra.</p>
+<ng-template [ngIf]="!authenticationService.isAuthenticated()">
 
-<div class="btn-group">
+  <p>A hirdetések böngészéséhez nincs szükség regisztrációra.</p>
+
+  <div class="btn-group">
     <a class="btn btn-default" routerLink="/sign-in" style="cursor: pointer; text-decoration: inherit;">
       Bejelentkezés</a>
     <a class="btn btn-default" routerLink="/sign-up" style="cursor: pointer; text-decoration: inherit;">
       Regisztráció</a>
-</div>
+  </div>
+</ng-template>
