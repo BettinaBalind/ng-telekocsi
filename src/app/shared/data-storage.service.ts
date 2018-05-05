@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
 import {Http} from '@angular/http';
-import {User} from '../profile/user.model';
 import {UsersService} from '../profile/users.service';
 
 @Injectable()
@@ -15,12 +14,7 @@ export class DataStorageService {
   storeUsers() {
     const token = this.authenticationService.getToken();
 
+    console.log(this.usersService.getUsers());
     return this.http.put('https://ng-telekocsi.firebaseio.com/users.json?=auth' + token, this.usersService.getUsers());
-  }
-
-  storeUser(user: User) {
-    const token = this.authenticationService.getToken();
-
-    return this.http.put('https://ng-telekocsi.firebaseio.com/users.json?=auth' + token, user);
   }
 }

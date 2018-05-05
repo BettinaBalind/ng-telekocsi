@@ -3,7 +3,7 @@ import {AuthenticationService} from '../shared/authentication.service';
 import {NgForm} from '@angular/forms';
 import {User} from '../profile/user.model';
 import {DataStorageService} from '../shared/data-storage.service';
-import {Response} from '@angular/http';
+import {UsersService} from '../profile/users.service';
 
 @Component({
   selector: 'app-registration',
@@ -13,6 +13,7 @@ import {Response} from '@angular/http';
 export class RegistrationComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService,
+              private usersService: UsersService,
               private dataStorageService: DataStorageService) {
   }
 
@@ -20,15 +21,19 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSignUp(form: NgForm) {
-    const email = form.value.email;
-    const password = form.value.password
-    this.authenticationService.signupUser(email, password);
-    // this.dataStorageService.storeUser(registerUser)
-    //   .subscribe(
-    //     (response: Response) => {
-    //       console.log(response);
-    //     }
-    //   );
+    const registerUser: User = new User(
+      form.value.firstName,
+        form.value.lastName,
+        form.value.email,
+        form.value.password,
+        form.value.city);
+
+    this.authenticationService.signupUser(registerUser.email, registerUser.password);
+    this.usersService.addUser(registerUser);
+    this.dataStorageService.storeUsers()
+      .subscribe((response)  => {
+        console.log(response);
+      });
   }
 
 }

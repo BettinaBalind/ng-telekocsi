@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {AuthenticationService} from '../shared/authentication.service';
 
 @Component({
@@ -6,12 +6,9 @@ import {AuthenticationService} from '../shared/authentication.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor(private authenticationService: AuthenticationService) { }
-
-  ngOnInit() {
-  }
 
   onLogOut() {
     this.authenticationService.logout();

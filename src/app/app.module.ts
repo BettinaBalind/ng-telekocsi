@@ -13,6 +13,8 @@ import {AuthenticationService} from './shared/authentication.service';
 import {UsersService} from './profile/users.service';
 import {DataStorageService} from './shared/data-storage.service';
 import {HttpModule} from '@angular/http';
+import {DropdownDirective} from './shared/dropdown.directive';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import {HttpModule} from '@angular/http';
     HeaderComponent,
     NotFoundComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    DropdownDirective,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
