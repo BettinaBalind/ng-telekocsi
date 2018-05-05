@@ -8,15 +8,15 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="/advertisements" style="cursor: pointer;">Hirdetések</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a style="cursor: pointer;">Saját adatok</a></li>
-            <li><a style="cursor: pointer;">Kijelentkezés</a></li>
-          </ul>
-        </li>
-      </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown" *ngIf="authenticationService.isAuthenticated()">
+            <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a style="cursor: pointer;">Saját adatok</a></li>
+              <li><a style="cursor: pointer;" (click)="onLogOut()">Kijelentkezés</a></li>
+            </ul>
+          </li>
+        </ul>
     </div>
   </div>
 </nav>
